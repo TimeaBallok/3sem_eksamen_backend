@@ -30,7 +30,6 @@ public class UserResource
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     @Context
     private UriInfo context;
-
     @Context
     SecurityContext securityContext;
 
