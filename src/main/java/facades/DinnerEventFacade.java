@@ -1,7 +1,14 @@
 package facades;
 
+import dtos.DinnerEventDTO;
+import entities.DinnerEvent;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
+import javax.ws.rs.WebApplicationException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DinnerEventFacade
 {
@@ -25,4 +32,37 @@ public class DinnerEventFacade
     {
         return emf.createEntityManager();
     }
+
+    public List<DinnerEventDTO> getAllDinners()
+    {
+        EntityManager em = getEntityManager();
+        try
+        {
+            TypedQuery<DinnerEvent> query = em.createQuery("select d from DinnerEvent d", DinnerEvent.class);
+            List<DinnerEvent> dinnerEventList = query.getResultList();
+            if (dinnerEventList.isEmpty())
+                throw new WebApplicationException("No dinner events was found");
+            List<DinnerEventDTO> dinnerEventDTOList = new ArrayList<>();
+            dinnerEventList.forEach(dinner -> dinnerEventDTOList.add(new DinnerEventDTO(dinner)));
+            return dinnerEventDTOList;
+        }
+        finally {
+            em.close();
+        }
+    }
+
+    public DinnerEventDTO getDinnerById (Integer dinnerId)
+    {
+        EntityManager em = getEntityManager();
+        try {
+            DinnerEvent dinnerEvent = em.find(DinnerEvent.class, dinnerId);
+            if (dinnerEvent == null)
+                throw new WebApplicationException("Dinner event with id: " + dinnerId + " doesn't exist");
+            return new DinnerEventDTO(dinnerEvent);
+        } finally {
+            em.close();
+        }
+    }
+
+
 }
