@@ -119,7 +119,6 @@ public class DinnerEventFacade
         } finally {
             em.close();
         }
-
     }
 
 

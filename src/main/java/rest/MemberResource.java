@@ -2,6 +2,8 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import dtos.MemberDTO;
 import facades.MemberFacade;
 import utils.EMF_Creator;
@@ -49,5 +51,26 @@ public class MemberResource
     {
         Integer memberId = FACADE.getMemberIdByUserName(userName);
         return GSON.toJson(memberId);
+    }
+
+    @Path("dinner/{dinnerId}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getMembersByDinner(@PathParam("dinnerId") Integer dinnerId)
+    {
+        List<MemberDTO> memberDTOList = FACADE.getMembersByDinnerEvent(dinnerId);
+        return GSON.toJson(memberDTOList);
+    }
+
+    @POST
+    @Path("remove/")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String removeMemberFromDinner(String input){
+        JsonElement jsonString = JsonParser.parseString(input);
+        int dinnerId = jsonString.getAsJsonObject().get("dinnerId").getAsInt();
+        int memberId = jsonString.getAsJsonObject().get("memberId").getAsInt();
+        MemberDTO memberDTO = FACADE.removeMemberFromDinner(memberId, dinnerId);
+        return GSON.toJson(memberDTO);
     }
 }

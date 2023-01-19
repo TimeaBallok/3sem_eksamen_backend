@@ -3,11 +3,13 @@ package facades;
 import dtos.AssignmentDTO;
 import dtos.MemberDTO;
 import entities.Assignment;
+import entities.DinnerEvent;
 import entities.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.WebApplicationException;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,5 +79,23 @@ public class AssignmentFacade
         assignmentList.forEach(assignmet -> assignmentDTOList.add(new AssignmentDTO(assignmet)));
         return assignmentDTOList;
     }
+
+//    public String deleteAssignment(int memberId)
+//    {
+//        EntityManager em = getEntityManager();
+//        try {
+//            em.getTransaction().begin();
+//            DinnerEvent dinnerEvent = em.find(DinnerEvent.class, dinnerId);
+//            if (dinnerEvent == null)
+//                throw new NotFoundException("Dinner event with id: " + dinnerId + " doesn't exist");
+//            List<Assignment> assignmentList = dinnerEvent.getAssignments();
+//            assignmentList.forEach(assignment -> assignment.setDinnerEvent(null));
+//            em.remove(dinnerEvent);
+//            em.getTransaction().commit();
+//            return "Dinner event with id " + dinnerId + " was succesfully deleted";
+//        } finally {
+//            em.close();
+//        }
+//    }
 
 }

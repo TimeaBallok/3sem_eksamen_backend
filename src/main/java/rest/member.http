@@ -11,3 +11,16 @@ Content-Type: application/json
 ### Get member id by user name
 GET http://localhost:8080/eksamen/api/member/name/member
 Content-Type: application/json
+
+### Get members by dinner event
+GET http://localhost:8080/eksamen/api/member/dinner/1
+Content-Type: application/json
+
+### remove member from dinner event
+POST http://localhost:8080/eksamen/api/member/remove
+Content-Type: application/json
+
+{
+  "dinnerId": 1,
+  "memberId": 1
+}
