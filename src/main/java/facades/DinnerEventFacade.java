@@ -87,5 +87,19 @@ public class DinnerEventFacade
         }
     }
 
+    public DinnerEventDTO createNewDinnerEvent(DinnerEventDTO dinnerEventDTO)
+    {
+        EntityManager em = getEntityManager();
+        DinnerEvent dinnerEvent = new DinnerEvent(dinnerEventDTO.getTime(), dinnerEventDTO.getLocation(), dinnerEventDTO.getDish(), dinnerEventDTO.getPrice());
+        try {
+            em.getTransaction().begin();
+            em.persist(dinnerEvent);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new DinnerEventDTO(dinnerEvent);
+    }
+
 
 }

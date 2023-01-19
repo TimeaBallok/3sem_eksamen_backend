@@ -27,11 +27,13 @@ public class DinnerEvent
     {
     }
 
-    public DinnerEvent(String time, String location, String dish)
+
+    public DinnerEvent(String time, String location, String dish, Double price)
     {
         this.time = time;
         this.location = location;
         this.dish = dish;
+        this.price = price;
     }
 
     public List<Assignment> getAssignments()

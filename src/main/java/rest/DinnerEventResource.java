@@ -51,4 +51,13 @@ public class DinnerEventResource
         List<DinnerEventDTO> dinnerEventDTOList = FACADE.getAllDinnersByMember(memberId);
         return GSON.toJson(dinnerEventDTOList);
     }
+
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public String createNewDinnerEvent(String input){
+        DinnerEventDTO dinnerEventDTO = GSON.fromJson(input, DinnerEventDTO.class);
+        DinnerEventDTO newDinnerEvent = FACADE.createNewDinnerEvent(dinnerEventDTO);
+        return GSON.toJson(newDinnerEvent);
+    }
 }

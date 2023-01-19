@@ -11,3 +11,14 @@ Content-Type: application/json
 ### Get dinners by member
 GET http://localhost:8080/eksamen/api/dinner/member/1
 Content-Type: application/json
+
+### create new dinner event
+POST http://localhost:8080/eksamen/api/dinner
+Content-Type: application/json
+
+{
+  "time": "20-1-23 18:00",
+  "location": "Rønne",
+  "dish": "Sphagetti bolognese",
+  "price": 60
+}
