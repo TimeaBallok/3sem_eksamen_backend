@@ -152,4 +152,14 @@ public class Member
     {
         return Objects.hash(id);
     }
+
+    public void assignMembers(Assignment assignment)
+    {
+        this.assignments.add(assignment);
+    }
+
+    public void removeAssignment(Assignment assignment)
+    {
+        this.assignments.remove(assignment);
+    }
 }

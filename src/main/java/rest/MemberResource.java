@@ -63,7 +63,7 @@ public class MemberResource
     }
 
     @POST
-    @Path("remove/")
+    @Path("remove")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String removeMemberFromDinner(String input){

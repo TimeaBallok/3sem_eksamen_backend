@@ -6,6 +6,8 @@
         <class>entities.DinnerEvent</class>
         <class>entities.Assignment</class>
         <class>entities.Member</class>
+        <class>entities.User</class>
+        <class>entities.Role</class>
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <!--    <class>entities.RenameMe</class>-->
         <exclude-unlisted-classes>false</exclude-unlisted-classes>

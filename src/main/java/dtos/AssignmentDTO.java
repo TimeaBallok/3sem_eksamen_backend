@@ -7,6 +7,7 @@ import entities.Member;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,17 +17,16 @@ public class AssignmentDTO
 
     private Integer id;
     private String familyName;
-    private Date assignedDate;
+
     private String contactInfo;
 
     private DinnerEvent dinnerEvent;
 
     private List<Member> members = new ArrayList<>();
 
-    public AssignmentDTO(String familyName, Date assignedDate, String contactInfo)
+    public AssignmentDTO(String familyName, String contactInfo)
     {
         this.familyName = familyName;
-        this.assignedDate = assignedDate;
         this.contactInfo = contactInfo;
     }
 
@@ -34,7 +34,6 @@ public class AssignmentDTO
     {
         this.id = assignment.getId();
         this.familyName = assignment.getFamilyName();
-        this.assignedDate = assignment.getAssignedDate();
         this.contactInfo = assignment.getContactInfo();
     }
 
@@ -46,11 +45,6 @@ public class AssignmentDTO
     public String getFamilyName()
     {
         return familyName;
-    }
-
-    public Date getAssignedDate()
-    {
-        return assignedDate;
     }
 
     public String getContactInfo()

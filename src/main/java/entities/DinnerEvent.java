@@ -124,4 +124,11 @@ public class DinnerEvent
     {
         return Objects.hash(id);
     }
+
+    public void addAssignment(Assignment assignment)
+    {
+        this.assignments.add(assignment);
+        assignment.setDinnerEvent(this);
+
+    }
 }
