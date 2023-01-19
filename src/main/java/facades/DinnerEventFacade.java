@@ -110,7 +110,7 @@ public class DinnerEventFacade
             em.getTransaction().begin();
             DinnerEvent dinnerEvent = em.find(DinnerEvent.class, dinnerId);
             if (dinnerEvent == null)
-                throw new NotFoundException("Dinner event with id: " + dinnerId + " doesn't exist");
+                throw new WebApplicationException("Dinner event with id: " + dinnerId + " doesn't exist");
             List<Assignment> assignmentList = dinnerEvent.getAssignments();
             assignmentList.forEach(assignment -> assignment.setDinnerEvent(null));
             em.remove(dinnerEvent);

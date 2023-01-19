@@ -81,7 +81,6 @@ class DinnerEventFacadeTest
         } finally {
             em.close();
         }
-
     }
 
 
@@ -115,6 +114,7 @@ class DinnerEventFacadeTest
         DinnerEventDTO dinnerEventDTO = new DinnerEventDTO(dinnerEvent);
         DinnerEventDTO newDinner = facade.createNewDinnerEvent(dinnerEventDTO);
         assertNotNull(newDinner.getId());
+        assertEquals(3, facade.getAllDinners().size());
 
     }
 
