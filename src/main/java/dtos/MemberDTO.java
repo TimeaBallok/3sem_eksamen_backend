@@ -16,10 +16,10 @@ public class MemberDTO
     private String phone;
     private String email;
     private Integer birthYear;
-    private Double account;
+    private Integer account;
     private List<Assignment> assignments = new ArrayList<>();
 
-    public MemberDTO(String address, String phone, String email, Integer birthYear, Double account)
+    public MemberDTO(String address, String phone, String email, Integer birthYear, Integer account)
     {
         this.address = address;
         this.phone = phone;
@@ -63,7 +63,7 @@ public class MemberDTO
         return birthYear;
     }
 
-    public Double getAccount()
+    public Integer getAccount()
     {
         return account;
     }

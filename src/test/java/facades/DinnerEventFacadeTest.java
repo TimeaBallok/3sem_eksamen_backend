@@ -41,12 +41,12 @@ class DinnerEventFacadeTest
     @BeforeEach
     void setUp()
     {
-        dinnerEvent1 = new DinnerEvent("23-01-23 18:00", "Rønne", "Ungarsk goulasch", 60.0);
-        dinnerEvent2 = new DinnerEvent("23-01-24 18:00", "Rønne", "Sphagetti bolognese", 50.0);
+        dinnerEvent1 = new DinnerEvent("23-01-23 18:00", "Rønne", "Ungarsk goulasch", 60);
+        dinnerEvent2 = new DinnerEvent("23-01-24 18:00", "Rønne", "Sphagetti bolognese", 50);
         assignment1 = new Assignment("Ballok", "Timi");
         assignment2 = new Assignment("Ballok", "Timi");
-        member1 = new Member("Tetsvej 1", "123456", "test1@test.dk", 1975, 500.0);
-        member2 = new Member("Tetsvej 2", "654321", "test2@test.dk", 1999, 500.0);
+        member1 = new Member("Tetsvej 1", "123456", "test1@test.dk", 1975, 500);
+        member2 = new Member("Tetsvej 2", "654321", "test2@test.dk", 1999, 500);
 
         EntityManager em = emf.createEntityManager();
         try {
@@ -110,7 +110,7 @@ class DinnerEventFacadeTest
     @Test
     void createNewDinnerEvent()
     {
-        DinnerEvent dinnerEvent = new DinnerEvent("23-01-23 15:00", "Rønne", "Æblekage", 40.0);
+        DinnerEvent dinnerEvent = new DinnerEvent("23-01-23 15:00", "Rønne", "Æblekage", 40);
         DinnerEventDTO dinnerEventDTO = new DinnerEventDTO(dinnerEvent);
         DinnerEventDTO newDinner = facade.createNewDinnerEvent(dinnerEventDTO);
         assertNotNull(newDinner.getId());
@@ -124,7 +124,7 @@ class DinnerEventFacadeTest
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            dinnerEvent3 =new DinnerEvent("23-01-23 18:00", "Rønne", "Ungarsk goulasch", 60.0);
+            dinnerEvent3 =new DinnerEvent("23-01-23 18:00", "Rønne", "Ungarsk goulasch", 60);
             em.persist(dinnerEvent3);
             em.getTransaction().commit();
         } finally {

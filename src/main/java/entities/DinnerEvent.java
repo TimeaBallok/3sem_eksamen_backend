@@ -18,9 +18,7 @@ public class DinnerEvent
     private String time;
     private String location;
     private String dish;
-
-    @Column(precision=2, scale=2)
-    private Double price;
+    private Integer price;
 
     @OneToMany(mappedBy = "dinnerEvent")
     private List<Assignment> assignments = new ArrayList<>();
@@ -30,7 +28,7 @@ public class DinnerEvent
     }
 
 
-    public DinnerEvent(String time, String location, String dish, Double price)
+    public DinnerEvent(String time, String location, String dish, Integer price)
     {
         this.time = time;
         this.location = location;
@@ -89,12 +87,12 @@ public class DinnerEvent
         this.dish = dish;
     }
 
-    public Double getPrice()
+    public Integer getPrice()
     {
         return price;
     }
 
-    public void setPrice(Double price)
+    public void setPrice(Integer price)
     {
         this.price = price;
     }

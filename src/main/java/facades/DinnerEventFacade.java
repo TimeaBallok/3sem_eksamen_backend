@@ -131,7 +131,7 @@ public class DinnerEventFacade
         dinnerEvent.setTime(dinnerEventDTO.getTime());
         dinnerEvent.setLocation(dinnerEventDTO.getLocation());
         dinnerEvent.setDish(dinnerEventDTO.getDish());
-        dinnerEvent.setPrice(dinnerEvent.getPrice());
+        dinnerEvent.setPrice(dinnerEventDTO.getPrice());
         try {
             em.getTransaction().begin();
             em.merge(dinnerEvent);

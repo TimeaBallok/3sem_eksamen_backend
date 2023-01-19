@@ -19,7 +19,7 @@ public class Member
     private String phone;
     private String email;
     private Integer birthYear;
-    private Double account;
+    private Integer account;
 
     @ManyToMany
     @JoinTable(name = "member_assignments",
@@ -45,7 +45,7 @@ public class Member
     {
     }
 
-    public Member(String address, String phone, String email, Integer birthYear, Double account)
+    public Member(String address, String phone, String email, Integer birthYear, Integer account)
     {
         this.address = address;
         this.phone = phone;
@@ -114,12 +114,12 @@ public class Member
         this.birthYear = birthYear;
     }
 
-    public Double getAccount()
+    public Integer getAccount()
     {
         return account;
     }
 
-    public void setAccount(Double account)
+    public void setAccount(Integer account)
     {
         this.account = account;
     }

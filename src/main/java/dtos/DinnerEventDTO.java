@@ -13,10 +13,10 @@ public class DinnerEventDTO
     private String time;
     private String location;
     private String dish;
-    private Double price;
+    private Integer price;
     private List<Assignment> assignments = new ArrayList<>();
 
-    public DinnerEventDTO(String time, String location, String dish, Double price)
+    public DinnerEventDTO(String time, String location, String dish, Integer price)
     {
         this.time = time;
         this.location = location;
@@ -53,7 +53,7 @@ public class DinnerEventDTO
         return dish;
     }
 
-    public Double getPrice()
+    public Integer getPrice()
     {
         return price;
     }

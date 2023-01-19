@@ -36,5 +36,5 @@ Content-Type: application/json
   "time": "20-1-27 17:00",
   "location": "Rønne",
   "dish": "Lasagne",
-  "price": 70.00
+  "price": 70
 }
