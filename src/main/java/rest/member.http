@@ -7,3 +7,7 @@ Content-Type: application/json
 ### Get all members
 GET http://localhost:8080/eksamen/api/member/all
 Content-Type: application/json
+
+### Get member id by user name
+GET http://localhost:8080/eksamen/api/member/name/member
+Content-Type: application/json

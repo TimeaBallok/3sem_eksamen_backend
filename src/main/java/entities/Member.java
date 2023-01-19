@@ -27,6 +27,20 @@ public class Member
             inverseJoinColumns = @JoinColumn(name = "assignments_id"))
     private List<Assignment> assignments = new ArrayList<>();
 
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "user_user_name")
+    private User user;
+
+    public User getUser()
+    {
+        return user;
+    }
+
+    public void setUser(User user)
+    {
+        this.user = user;
+    }
+
     public Member()
     {
     }

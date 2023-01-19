@@ -66,4 +66,16 @@ public class AssignmentFacade
         }
     }
 
+    public List<AssignmentDTO> getAssignmentsByMember(Integer memberId)
+    {
+        EntityManager em = getEntityManager();
+        Member member = em.find(Member.class, memberId);
+        if (member == null)
+            throw new WebApplicationException("Member with id: " + memberId + "doesn't exist");
+        List<Assignment> assignmentList = member.getAssignments();
+        List<AssignmentDTO> assignmentDTOList = new ArrayList<>();
+        assignmentList.forEach(assignmet -> assignmentDTOList.add(new AssignmentDTO(assignmet)));
+        return assignmentDTOList;
+    }
+
 }

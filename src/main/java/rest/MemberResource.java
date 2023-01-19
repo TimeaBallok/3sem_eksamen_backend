@@ -41,4 +41,13 @@ public class MemberResource
         List<MemberDTO> memberDTOList = FACADE.getAllMembers();
         return GSON.toJson(memberDTOList);
     }
+
+    @Path("name/{userName}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getMemberIdByuserName(@PathParam("userName") String userName)
+    {
+        Integer memberId = FACADE.getMemberIdByUserName(userName);
+        return GSON.toJson(memberId);
+    }
 }

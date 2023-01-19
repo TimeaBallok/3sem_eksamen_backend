@@ -7,3 +7,7 @@ Content-Type: application/json
 ### Get all assignments
 GET http://localhost:8080/eksamen/api/assignment/all
 Content-Type: application/json
+
+### Get assignments by member
+GET http://localhost:8080/eksamen/api/assignment/member/1
+Content-Type: application/json

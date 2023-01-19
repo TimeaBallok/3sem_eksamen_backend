@@ -2,6 +2,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dtos.AssignmentDTO;
 import dtos.DinnerEventDTO;
 import facades.DinnerEventFacade;
 import utils.EMF_Creator;
@@ -39,6 +40,15 @@ public class DinnerEventResource
     @Produces({MediaType.APPLICATION_JSON})
     public String allDinners() {
         List<DinnerEventDTO> dinnerEventDTOList = FACADE.getAllDinners();
+        return GSON.toJson(dinnerEventDTOList);
+    }
+
+    @Path("member/{memberId}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getAllDinnersByMember(@PathParam("memberId") Integer memberId)
+    {
+        List<DinnerEventDTO> dinnerEventDTOList = FACADE.getAllDinnersByMember(memberId);
         return GSON.toJson(dinnerEventDTOList);
     }
 }

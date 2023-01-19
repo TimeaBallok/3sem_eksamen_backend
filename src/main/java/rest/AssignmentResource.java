@@ -43,4 +43,15 @@ public class AssignmentResource
         return GSON.toJson(assignmentDTOList);
     }
 
+    @Path("member/{memberId}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getAssignmentsByMember(@PathParam("memberId") Integer memberId)
+    {
+        List<AssignmentDTO> assignmentDTOList = FACADE.getAssignmentsByMember(memberId);
+        return GSON.toJson(assignmentDTOList);
+    }
+
+
+
 }

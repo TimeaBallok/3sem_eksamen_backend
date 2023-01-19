@@ -7,3 +7,7 @@ Content-Type: application/json
 ### Get all dinners
 GET http://localhost:8080/eksamen/api/dinner/all
 Content-Type: application/json
+
+### Get dinners by member
+GET http://localhost:8080/eksamen/api/dinner/member/1
+Content-Type: application/json
