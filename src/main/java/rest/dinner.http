@@ -22,3 +22,7 @@ Content-Type: application/json
   "dish": "Sphagetti bolognese",
   "price": 60
 }
+
+### delete a dinner event
+DELETE http://localhost:8080/eksamen/api/dinner/delete/3
+Content-Type: application/json

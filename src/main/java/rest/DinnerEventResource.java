@@ -60,4 +60,13 @@ public class DinnerEventResource
         DinnerEventDTO newDinnerEvent = FACADE.createNewDinnerEvent(dinnerEventDTO);
         return GSON.toJson(newDinnerEvent);
     }
+
+    @DELETE
+    @Path("delete/{dinnerId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String deleteDinnerEvent(@PathParam("dinnerId")Integer dinnerId){
+        String deleted = FACADE.deleteDinner(dinnerId);
+        return GSON.toJson(deleted);
+    }
 }
