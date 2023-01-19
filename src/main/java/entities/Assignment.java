@@ -15,12 +15,12 @@ public class Assignment
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-    String familyName;
+    private String familyName;
 
     @Temporal(TemporalType.DATE)
-    Date assignedDate;
+    private Date assignedDate;
 
-    String contactInfo;
+    private String contactInfo;
 
     @ManyToOne
     @JoinColumn(name = "dinner_event_id")

@@ -15,10 +15,10 @@ public class DinnerEvent
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    String time;
-    String location;
-    String dish;
-    Double price;
+    private String time;
+    private String location;
+    private String dish;
+    private Double price;
 
     @OneToMany(mappedBy = "dinnerEvent")
     private List<Assignment> assignments = new ArrayList<>();

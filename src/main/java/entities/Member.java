@@ -15,11 +15,11 @@ public class Member
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    String address;
-    String phone;
-    String email;
-    Integer birthYear;
-    Double account;
+    private String address;
+    private String phone;
+    private String email;
+    private Integer birthYear;
+    private Double account;
 
     @ManyToMany
     @JoinTable(name = "member_assignments",
