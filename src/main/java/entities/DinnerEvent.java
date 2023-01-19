@@ -18,6 +18,8 @@ public class DinnerEvent
     private String time;
     private String location;
     private String dish;
+
+    @Column(precision=2, scale=2)
     private Double price;
 
     @OneToMany(mappedBy = "dinnerEvent")

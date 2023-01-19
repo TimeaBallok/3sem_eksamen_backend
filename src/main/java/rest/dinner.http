@@ -26,3 +26,15 @@ Content-Type: application/json
 ### delete a dinner event
 DELETE http://localhost:8080/eksamen/api/dinner/delete/66
 Content-Type: application/json
+
+### update a dinner event
+PUT http://localhost:8080/eksamen/api/dinner/update/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "time": "20-1-27 17:00",
+  "location": "Rønne",
+  "dish": "Lasagne",
+  "price": 70.00
+}

@@ -1,7 +1,6 @@
 package entities;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +16,9 @@ public class Assignment
     @Column(name = "id", nullable = false)
     private Integer id;
     private String familyName;
+
+    @Temporal(TemporalType.DATE)
+    private Date assignedDate;
 
     private String contactInfo;
 
@@ -77,6 +79,16 @@ public class Assignment
         this.familyName = familyName;
     }
 
+    public Date getAssignedDate()
+    {
+        return assignedDate;
+    }
+
+    public void setAssignedDate(Date assignedDate)
+    {
+        this.assignedDate = assignedDate;
+    }
+
     public String getContactInfo()
     {
         return contactInfo;
@@ -93,6 +105,7 @@ public class Assignment
         return "Assignment{" +
                 "id=" + id +
                 ", familyName='" + familyName + '\'' +
+                ", assignedDate=" + assignedDate +
                 ", contactInfo='" + contactInfo + '\'' +
                 ", dinnerEvent=" + dinnerEvent +
                 ", members=" + members +

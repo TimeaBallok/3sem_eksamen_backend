@@ -4,6 +4,7 @@ import dtos.DinnerEventDTO;
 import entities.Assignment;
 import entities.DinnerEvent;
 import entities.Member;
+import entities.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -120,6 +121,27 @@ public class DinnerEventFacade
             em.close();
         }
     }
+
+    public DinnerEventDTO updateDinnerEvent(DinnerEventDTO dinnerEventDTO)
+    {
+        EntityManager em = getEntityManager();
+        DinnerEvent dinnerEvent = em.find(DinnerEvent.class, dinnerEventDTO.getId());
+        if (dinnerEvent == null)
+            throw new WebApplicationException("Dinner event with id: " + dinnerEventDTO.getId() + " doesn't exist");
+        dinnerEvent.setTime(dinnerEventDTO.getTime());
+        dinnerEvent.setLocation(dinnerEventDTO.getLocation());
+        dinnerEvent.setDish(dinnerEventDTO.getDish());
+        dinnerEvent.setPrice(dinnerEvent.getPrice());
+        try {
+            em.getTransaction().begin();
+            em.merge(dinnerEvent);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new DinnerEventDTO(dinnerEvent);
+    }
+
 
 
 }
