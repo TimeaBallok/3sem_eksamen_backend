@@ -74,7 +74,7 @@ public class DinnerEventResource
     @Path("update/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String updateBoat (@PathParam("id") int id, String input){
+    public String updateDinner (@PathParam("id") int id, String input){
         DinnerEventDTO dinnerEventDTO = GSON.fromJson(input, DinnerEventDTO.class);
         DinnerEventDTO updatedDinner = FACADE.updateDinnerEvent(dinnerEventDTO);
         return GSON.toJson(updatedDinner);

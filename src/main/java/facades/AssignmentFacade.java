@@ -1,6 +1,8 @@
 package facades;
 
+import dtos.AssignEventDTO;
 import dtos.AssignmentDTO;
+import dtos.DinnerEventDTO;
 import dtos.MemberDTO;
 import entities.Assignment;
 import entities.DinnerEvent;
@@ -78,6 +80,21 @@ public class AssignmentFacade
         List<AssignmentDTO> assignmentDTOList = new ArrayList<>();
         assignmentList.forEach(assignmet -> assignmentDTOList.add(new AssignmentDTO(assignmet)));
         return assignmentDTOList;
+    }
+
+    public AssignmentDTO createNewAssignment(AssignmentDTO assignmentDTO)
+    {
+        EntityManager em = getEntityManager();
+        Assignment assignment = new Assignment(assignmentDTO.getFamilyName(), assignmentDTO.getContactInfo());
+        try {
+            em.getTransaction().begin();
+            em.persist(assignment);
+            em.getTransaction().commit();
+            em.getTransaction().begin();
+        } finally {
+            em.close();
+        }
+        return new AssignmentDTO(assignment);
     }
 
 //    public String deleteAssignment(int memberId)

@@ -105,11 +105,7 @@ public class MemberFacade
             Member member = em.find(Member.class, memberId);
             if (member == null)
                 throw new WebApplicationException("Member with id: " + member + " doesn't exist");
-//            DinnerEvent dinnerEvent = em.find(DinnerEvent.class, dinnerId);
-//            if (dinnerEvent == null)
-//                throw new WebApplicationException("Harbour with id: " + dinnerId + " doesn't exist");
             List<Assignment> assignmentList = member.getAssignments();
-            int assignmentId = 0;
             assignmentList.forEach(assignment -> {
                 if (assignment.getDinnerEvent().getId() == dinnerId)
                     assignment.setDinnerEvent(null);

@@ -2,6 +2,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dtos.AssignEventDTO;
 import dtos.AssignmentDTO;
 import dtos.DinnerEventDTO;
 import facades.AssignmentFacade;
@@ -50,6 +51,15 @@ public class AssignmentResource
     {
         List<AssignmentDTO> assignmentDTOList = FACADE.getAssignmentsByMember(memberId);
         return GSON.toJson(assignmentDTOList);
+    }
+
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public String createNewAssignment(String input){
+        AssignmentDTO assignmentDTO = GSON.fromJson(input, AssignmentDTO.class);
+        AssignmentDTO newAssignment = FACADE.createNewAssignment(assignmentDTO);
+        return GSON.toJson(newAssignment);
     }
 
 

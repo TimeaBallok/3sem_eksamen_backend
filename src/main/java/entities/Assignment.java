@@ -39,6 +39,13 @@ public class Assignment
         this.contactInfo = contactInfo;
     }
 
+    public Assignment(String familyName, String contactInfo, List<Member> members)
+    {
+        this.familyName = familyName;
+        this.contactInfo = contactInfo;
+        this.members = members;
+    }
+
     public List<Member> getMembers()
     {
         return members;

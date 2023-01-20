@@ -11,3 +11,12 @@ Content-Type: application/json
 ### Get assignments by member
 GET http://localhost:8080/eksamen/api/assignment/member/1
 Content-Type: application/json
+
+### create new assignment
+POST http://localhost:8080/eksamen/api/assignment
+Content-Type: application/json
+
+{
+  "familyName": "TestFamily3",
+  "contactInfo": "Nyamnyam"
+}
